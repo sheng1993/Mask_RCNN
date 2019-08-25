@@ -1,8 +1,15 @@
+import mrcnn.model as modellib
+
 from FashionConfig import FashionConfig
 from FashionDataset import FashionDataset
 
 config = FashionConfig()
-#config.display()
 train_dataset = FashionDataset()
-print(train_dataset.class_info)
-print(train_dataset.image_info)
+#config.display()
+# print(train_dataset.class_info)
+print(len(train_dataset.image_info))
+
+model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
+model.load_weights(model.get_imagenet_weights(), by_name=True)
+
+#model.train()
