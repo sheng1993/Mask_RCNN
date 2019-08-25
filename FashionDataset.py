@@ -9,8 +9,11 @@ class FashionDataset(Dataset):
     def __init__(self, class_map=None):
         super().__init__(class_map=class_map)
 
-    def load_shapes(self):
-        pass
+        with open('class_info.pickle', 'rb') as f:
+            conf = pickle.load(f)
+        
+        self.class_info.append(conf)
+
     
     def load_image(self, image_id):
         return super().load_image(image_id)
