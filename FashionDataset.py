@@ -14,6 +14,11 @@ class FashionDataset(Dataset):
         
         self.class_info.append(conf)
 
+
+        with open('image_info.pickle', 'rb') as f:
+            image_info = pickle.load(f)
+        
+        self.image_info = image_info
     
     def load_image(self, image_id):
         return super().load_image(image_id)
