@@ -6,7 +6,7 @@ import numpy as np
 
 class FashionDataset(Dataset):
 
-    def __init__(self, class_map=None):
+    def __init__(self, mode='training', class_map=None):
         super().__init__(class_map=class_map)
 
         with open('class_info.pickle', 'rb') as f:
@@ -18,7 +18,7 @@ class FashionDataset(Dataset):
         with open('image_info.pickle', 'rb') as f:
             image_info = pickle.load(f)
         
-        self.image_info = image_info
+        self.image_info = image_info[:45000] if mode == 'training' else image_info[45000:]
     
     def load_image(self, image_id):
         return super().load_image(image_id)

@@ -5,11 +5,12 @@ from FashionDataset import FashionDataset
 
 config = FashionConfig()
 train_dataset = FashionDataset()
-#config.display()
+val_dataset = FashionDataset(mode='validation')
+config.display()
 # print(train_dataset.class_info)
-print(len(train_dataset.image_info))
+# print(len(train_dataset.image_info))
 
 model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
 model.load_weights(model.get_imagenet_weights(), by_name=True)
 
-#model.train()
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='heads')
