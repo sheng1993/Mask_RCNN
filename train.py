@@ -20,7 +20,7 @@ model.load_weights('./mask-rcnn-best.h5', by_name=True)
 augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
     imgaug.augmenters.Fliplr(0.5), 
     imgaug.augmenters.GaussianBlur(sigma=(0.0, 3.0)),
-    imgaug.augmenters.Rot90(imgaug.ALL)
+    imgaug.augmenters.Rot90([0, 1, 2, 3])
     ])
 
 model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='heads', augmentation=augmentation)
