@@ -10,6 +10,8 @@ class FashionConfig(Config):
 
     RPN_ANCHOR_SCALES = (32, 64, 128, 256, 512)
 
+    LEARNING_RATE = 0.002
+
 if __name__ == '__main__':
     config = FashionConfig()
     config.display()
