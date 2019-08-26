@@ -22,4 +22,4 @@ augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
     imgaug.augmenters.GaussianBlur(sigma=(0.0, 3.0))
     ])
 
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='5+', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='4+', augmentation=None)

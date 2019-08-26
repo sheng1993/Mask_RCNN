@@ -8,9 +8,7 @@ class FashionConfig(Config):
 
     NUM_CLASSES = 16
 
-    RPN_ANCHOR_SCALES = (32, 64, 128, 256)
-
-    IMAGE_MIN_DIM = 416
+    RPN_ANCHOR_SCALES = (32, 64, 128, 256, 512)
 
 if __name__ == '__main__':
     config = FashionConfig()
