@@ -35,7 +35,7 @@ class FashionDataset(Dataset):
                 mask = self.get_partial_image_mask(width, height, lines[i])
                 masks[:, :, i] = mask
         
-        class_ids = np.load(os.path.join('masks', _id + '_classes.npy'))
+        class_ids = np.load(os.path.join('masks', _id + '.npy'))
         return masks, class_ids
 
     
