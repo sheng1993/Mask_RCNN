@@ -12,7 +12,7 @@ class FashionDataset(Dataset):
         with open('class_info.pickle', 'rb') as f:
             conf = pickle.load(f)
         
-        self.class_info.append(conf)
+        self.class_info.extend(conf)
 
 
         with open('image_info.pickle', 'rb') as f:

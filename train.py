@@ -7,7 +7,7 @@ config = FashionConfig()
 train_dataset = FashionDataset()
 val_dataset = FashionDataset(mode='validation')
 config.display()
-print(train_dataset.class_info)
+# print(train_dataset.class_info)
 # print(len(train_dataset.image_info))
 
 train_dataset.prepare()
