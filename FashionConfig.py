@@ -1,7 +1,7 @@
 from mrcnn.config import Config
 
 class FashionConfig(Config):
-    NAME = 'FasionBot'
+    NAME = 'FashionBot'
 
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
