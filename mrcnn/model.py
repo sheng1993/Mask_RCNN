@@ -2132,7 +2132,7 @@ class MaskRCNN():
             saving.load_weights_from_hdf5_group(f, layers)
         if hasattr(f, 'close'):
             f.close()
-
+        print('Weights loaded from {}'.format(filepath))
         # Update the log directory
         self.set_log_dir(filepath)
 
