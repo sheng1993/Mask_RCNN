@@ -24,7 +24,8 @@ class FashionDataset(Dataset):
         return super().load_image(image_id)
 
     def load_mask(self, image_id: str):
-        with open(os.path.join('data', image_id.split('.')[0] + '.txt'), 'r') as f:
+        image_id = image_id.split('.')[0]
+        with open(os.path.join('data', image_id + '.txt'), 'r') as f:
             lines = f.readlines()
             width, height = lines[0].split(' ')
             width, height = int(width), int(height)
@@ -34,7 +35,7 @@ class FashionDataset(Dataset):
                 mask = self.get_partial_image_mask(width, height, lines[i + 1])
                 masks[:, :, i] = mask
         
-        class_ids = np.load(os.path.join('masks', image_id.split('.')[0] + '_classes.npy'))
+        class_ids = np.load(os.path.join('masks', image_id + '_classes.npy'))
         return masks, class_ids
 
     

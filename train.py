@@ -10,6 +10,9 @@ config.display()
 # print(train_dataset.class_info)
 # print(len(train_dataset.image_info))
 
+train_dataset.prepare()
+val_dataset.prepare()
+
 model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
 model.load_weights(model.get_imagenet_weights(), by_name=True)
 
