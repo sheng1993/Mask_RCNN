@@ -28,12 +28,11 @@ class FashionDataset(Dataset):
         _id = info['id'].split('.')[0]
         with open(os.path.join('masks', _id + '.txt'), 'r') as f:
             lines = f.readlines()
-            width, height = lines[0].split(' ')
-            width, height = int(width), int(height)
-
-            masks = np.zeros((height, width, len(lines) - 1))
-            for i in range(len(lines) - 1):
-                mask = self.get_partial_image_mask(width, height, lines[i + 1])
+            width, height = info['Width'], info['Height']
+            nmasks = len(lines)
+            masks = np.zeros((height, width, nmasks))
+            for i in range(nmasks):
+                mask = self.get_partial_image_mask(width, height, lines[i])
                 masks[:, :, i] = mask
         
         class_ids = np.load(os.path.join('masks', _id + '_classes.npy'))
