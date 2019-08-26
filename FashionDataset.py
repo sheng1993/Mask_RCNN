@@ -26,7 +26,7 @@ class FashionDataset(Dataset):
     def load_mask(self, image_id):
         info = self.image_info[image_id]
         _id = info['id'].split('.')[0]
-        with open(os.path.join('data', _id + '.txt'), 'r') as f:
+        with open(os.path.join('masks', _id + '.txt'), 'r') as f:
             lines = f.readlines()
             width, height = lines[0].split(' ')
             width, height = int(width), int(height)
