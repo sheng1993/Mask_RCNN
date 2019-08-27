@@ -9,13 +9,13 @@ class FashionDataset(Dataset):
     def __init__(self, mode='training', class_map=None):
         super().__init__(class_map=class_map)
 
-        with open('class_info.pickle', 'rb') as f:
+        with open('./maskrcnn/class_info.pickle', 'rb') as f:
             conf = pickle.load(f)
         
         self.class_info.extend(conf)
 
 
-        with open('image_info.pickle', 'rb') as f:
+        with open('./maskrcnn/image_info.pickle', 'rb') as f:
             image_info = pickle.load(f)
         
         self.image_info = image_info[:45000] if mode == 'training' else image_info[45000:]
