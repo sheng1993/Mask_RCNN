@@ -20,5 +20,5 @@ model.load_weights('mask_rcnn_fashionbot_0020.h5', by_name=True)
 augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
     imgaug.augmenters.Fliplr(0.5)
     ])
-config.LEARNING_RATE = 0.0001
+config.LEARNING_RATE = 0.00001
 model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='all', augmentation=None)
