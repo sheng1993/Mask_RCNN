@@ -12,6 +12,10 @@ class FashionConfig(Config):
 
     LEARNING_RATE = 0.002
 
+class InferenceConfig(FashionConfig):
+    GPU_COUNT = 1
+    IMAGES_PER_GPU = 1
+
 if __name__ == '__main__':
     config = FashionConfig()
     config.display()
