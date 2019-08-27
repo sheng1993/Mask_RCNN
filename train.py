@@ -21,4 +21,4 @@ augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
     imgaug.augmenters.Fliplr(0.5)
     ])
 config.LEARNING_RATE = 0.0001
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='4+', augmentation=None)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='all', augmentation=None)
