@@ -15,7 +15,7 @@ train_dataset.prepare()
 val_dataset.prepare()
 
 model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
-model.load_weights('mask_rcnn_fashionbot_0005.h5', by_name=True)
+model.load_weights(model.find_last(), by_name=True)
 
 augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
     imgaug.augmenters.Fliplr(0.5),
