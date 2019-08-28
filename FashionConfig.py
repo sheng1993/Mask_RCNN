@@ -12,6 +12,7 @@ class FashionConfig(Config):
 
     LEARNING_RATE = 0.001
     LEARNING_MOMENTUM = 0.9
+    WEIGHT_DECAY = 0.0001
 
     LOSS_WEIGHTS = {
         "rpn_class_loss": 1.,

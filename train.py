@@ -18,8 +18,10 @@ model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
 model.load_weights('mask_rcnn_fashionbot_0005.h5', by_name=True)
 
 augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
-    imgaug.augmenters.Fliplr(0.5)
+    imgaug.augmenters.Fliplr(0.5),
+    imgaug.augmenters.Affine()
     ])
-LEARNING_RATE = 0.001
-LEARNING_MOMENTUM = 0.5
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='5+', augmentation=augmentation)
+config.LEARNING_RATE = 0.001
+config.LEARNING_MOMENTUM = 0.5
+config.WEIGHT_DECAY = 0.001
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=40, layers='4+', augmentation=augmentation)
