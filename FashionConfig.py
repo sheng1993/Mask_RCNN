@@ -15,8 +15,8 @@ class FashionConfig(Config):
     WEIGHT_DECAY = 0.0001
 
     LOSS_WEIGHTS = {
-        "rpn_class_loss": 1.,
-        "rpn_bbox_loss": 1.,
+        "rpn_class_loss": 0.75,
+        "rpn_bbox_loss": 0.75,
         "mrcnn_class_loss": 1.,
         "mrcnn_bbox_loss": 1.,
         "mrcnn_mask_loss": 1.
