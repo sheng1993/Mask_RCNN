@@ -24,4 +24,6 @@ augmentation = imgaug.augmenters.Sometimes(p=0.5, then_list=[
 config.LEARNING_RATE = 0.0001
 config.LEARNING_MOMENTUM = 0.5
 config.WEIGHT_DECAY = 0.005
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=40, layers='4+', augmentation=augmentation)
+
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=25, layers='4+', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=40, layers='all', augmentation=augmentation)
