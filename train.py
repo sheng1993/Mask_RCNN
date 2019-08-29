@@ -25,4 +25,4 @@ config.LEARNING_RATE = 0.00001
 config.LEARNING_MOMENTUM = 0.5
 config.WEIGHT_DECAY = 0.005
 
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=40, layers='all', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=60, layers='all', augmentation=augmentation)
