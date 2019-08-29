@@ -4,7 +4,7 @@ class FashionConfig(Config):
     NAME = 'FashionBot'
 
     GPU_COUNT = 1
-    IMAGES_PER_GPU = 2
+    IMAGES_PER_GPU = 1
 
     NUM_CLASSES = 16
 
