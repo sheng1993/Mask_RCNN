@@ -22,7 +22,7 @@ train_dataset = FashionDataset()
 train_dataset.prepare()
 
 model = modellib.MaskRCNN(mode='inference', config=config, model_dir='results')
-model.load_weights('imaterialist_mask_rcnn_fashionbot_0020.h5', by_name=True)
+model.load_weights(r"C:\Users\shlin\Downloads\imaterialist_mask_rcnn_fashionbot_0005.h5", by_name=True)
 
 while True:
     img_path = input('Image = ')
