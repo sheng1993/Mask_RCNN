@@ -2371,7 +2371,7 @@ class MaskRCNN():
             validation_steps=self.config.VALIDATION_STEPS,
             max_queue_size=100,
             workers=10,
-            use_multiprocessing=False,
+            use_multiprocessing=True,
             verbose=1
         )
         self.epoch = max(self.epoch, epochs)
