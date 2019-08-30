@@ -21,11 +21,11 @@ train_dataset.prepare()
 val_dataset.prepare()
 
 model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
-#model.load_weights(model.find_last(), by_name=True)
+model.load_weights(model.find_last(), by_name=True)
 
-model.load_weights(COCO_MODEL_PATH, by_name=True,
-                       exclude=["mrcnn_class_logits", "mrcnn_bbox_fc", 
-                                "mrcnn_bbox", "mrcnn_mask"])
+# model.load_weights(COCO_MODEL_PATH, by_name=True,
+#                        exclude=["mrcnn_class_logits", "mrcnn_bbox_fc", 
+#                                 "mrcnn_bbox", "mrcnn_mask"])
 
 augmentation = imgaug.augmenters.Sometimes(0.5, [
                     imgaug.augmenters.Fliplr(0.5),
@@ -38,6 +38,6 @@ augmentation = imgaug.augmenters.Sometimes(0.5, [
 
 config.WEIGHT_DECAY = 0.001
 
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=25, layers='heads', augmentation=augmentation)
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE / 10, epochs=60, layers='4+', augmentation=augmentation)
+#model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=25, layers='heads', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE / 10, epochs=40, layers='4+', augmentation=augmentation)
 model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE / 10, epochs=120, layers='all', augmentation=augmentation)
