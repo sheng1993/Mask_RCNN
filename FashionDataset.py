@@ -11,14 +11,13 @@ class FashionDataset(Dataset):
 
         with open('./maskrcnn/class_info.pickle', 'rb') as f:
             conf = pickle.load(f)
-        
+        conf = sorted(conf, key=lambda x: x['id'])
         self.class_info.extend(conf)
-
 
         with open('./maskrcnn/image_info.pickle', 'rb') as f:
             image_info = pickle.load(f)
         
-        self.image_info = image_info[:45000] if mode == 'training' else image_info[45000:]
+        self.image_info = image_info[:38000] if mode == 'training' else image_info[38000:]
     
     def load_image(self, image_id):
         return super().load_image(image_id)
