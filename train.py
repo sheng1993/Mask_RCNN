@@ -36,8 +36,8 @@ augmentation = imgaug.augmenters.Sometimes(0.5, [
                     imgaug.augmenters.Affine(rotate=(-90, 90))
                 ])
 
-config.LEARNING_RATE = 0.001
-config.LEARNING_MOMENTUM = 0.9
-config.WEIGHT_DECAY = 0.0001
+config.WEIGHT_DECAY = 0.001
 
-model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=60, layers='heads', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE, epochs=20, layers='heads', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE / 10, epochs=60, layers='4+', augmentation=augmentation)
+model.train(train_dataset, val_dataset, learning_rate=config.LEARNING_RATE / 10, epochs=120, layers='all', augmentation=augmentation)
