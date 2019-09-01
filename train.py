@@ -21,7 +21,7 @@ train_dataset.prepare()
 val_dataset.prepare()
 
 model = modellib.MaskRCNN(mode='training', config=config, model_dir='results')
-model.load_weights(model.find_last(), by_name=True)
+model.load_weights('mask_rcnn_fashionbot-v1_0022.h5', by_name=True)
 
 # model.load_weights(COCO_MODEL_PATH, by_name=True,
 #                        exclude=["mrcnn_class_logits", "mrcnn_bbox_fc", 
